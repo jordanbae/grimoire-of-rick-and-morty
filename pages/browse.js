@@ -4,13 +4,13 @@ console.log(tempchar)
 export default function Browse() {
     return(
         <>
-          {tempchar.map((ele, key)=> {
-            return(
-                <div key={key}>
-                    <h1>{ele.name}</h1>
+          {tempchar.filter(one => {
+            return (
+                <div>
+                    {one.species === 'Alien'}
                 </div>
             )
-          })}  
+          })}
         </>
     )
 }
