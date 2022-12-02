@@ -1,4 +1,3 @@
-import Filter from "./filter"
 export default function About(){
     return (
         <>
