@@ -1,8 +1,7 @@
-import tempchar from "../public/tempchar.json";
 import Filter from "../components/Filter";
 import {useState, useEffect} from 'react';
 import Info from "../components/Info"
-console.log(tempchar);
+import axios from 'axios'
 
 
 
@@ -10,21 +9,32 @@ console.log(tempchar);
 const tempPageUrl = 'https://rickandmortyapi.com/api/character/?page='
 
 export default function Browse() {
-  const [card, setCard] = useState([])
+  const [card, setCard] = useState()
   const [totalPages, setTotalPages] = useState()
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setCard(tempchar.results)
-    setTotalPages(tempchar.info.pages)
-
+    const getResponse = () => {
+      axios.get('https://rickandmortyapi.com/api/character')
+      .then((res) => {
+        setCard(res.data.results)
+        setTotalPages(res.data.info.pages)
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+    getResponse();
   },[])
 
 
-  console.log('totalpages in browse', totalPages)
+
+  // console.log('totalpages in browse', totalPages)
   return (
     <>
-      <Filter setCard={setCard}/>
-      <Info card={card} totalPages={totalPages}/>
+      <Filter card={card} setCard={setCard}/>
+      <Info card={card} totalPages={totalPages} setCard={setCard}/>
     </>
   );
 }

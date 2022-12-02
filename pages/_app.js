@@ -4,6 +4,7 @@ import '../styles/header.css'
 import '../styles/browse.css'
 import '../styles/filter.css'
 
+
 import Header from './header'
 
 function MyApp({ Component, pageProps }) {

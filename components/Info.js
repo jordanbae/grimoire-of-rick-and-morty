@@ -1,18 +1,16 @@
-import React from 'react';
-import ReactPaginate from 'react-paginate'
+import React, { useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.css'
+import axios from 'axios';
+import Paginate from '../components/Paginate'
 
 
 
-export default function Info({card, totalPages}) {
-  console.log('totalpages in info', totalPages);
+export default function Info({card, totalPages, setCard}) {
 
-  const handlePageClick = (page) => {
-    console.log(page.selected);
-  }
   return (
     <>
       <div className="card-layout">
-        {card.map((element, key) => {
+        {card && card.map((element, key) => {
           return (
             <div key={key} className="card-layout__item">
               <img className="char-img" src={`${element.image}`} />
@@ -26,17 +24,7 @@ export default function Info({card, totalPages}) {
           );
         })}
       </div>
-
-      <ReactPaginate 
-                previousLabel={'<<'}
-                nextLabel={'>>'}
-                breakLabel={'...'}
-                pageCount={totalPages}
-                marginPagesDisplayed={3}
-                pageRangeDisplayed={6}
-                onPageChange={handlePageClick}
-      />
-
+      <Paginate card={card} setCard={setCard} totalPages={totalPages}/>
     </>
   );
 }

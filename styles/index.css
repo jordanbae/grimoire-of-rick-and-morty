@@ -3,7 +3,7 @@ main{
 }
 
 .background-image{
-    background-image: url('../public/background.png');
+    background: url('../public/background.png');
     background-size:cover;
     background-repeat: no-repeat;
     height: 100vh;
