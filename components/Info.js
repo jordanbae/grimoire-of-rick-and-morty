@@ -2,7 +2,7 @@ export default function Info(props) {
   return (
     <>
       <div className="card-layout">
-        {props.bQuery.map((element, key) => {
+        {props.card.map((element, key) => {
           return (
             <div key={key} className="card-layout__item">
               <img className="char-img" src={`${element.image}`} />

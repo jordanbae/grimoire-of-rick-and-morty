@@ -4,19 +4,34 @@ import {useState, useEffect} from 'react';
 import Info from "../components/Info"
 console.log(tempchar);
 
+
+const tempPageUrl = 'https://rickandmortyapi.com/api/character/?page='
+let pageUrlArr = [];
+
 export default function Browse() {
-  const [bQuery, setBQuery] = useState([])
+  const [card, setCard] = useState([])
 
   useEffect(() => {
-    setBQuery(tempchar.results)
+    setCard(tempchar.results)
     console.log('tempchar in useeffect', tempchar)
+    const countPage = () => {
+      {for (let i = 1; i <= tempchar.info.pages; i++) {
+        let pageUrl = tempPageUrl + i;
+        pageUrlArr.push(pageUrl);
+      }}
+      console.log(pageUrlArr)
+    }
+    countPage();
   },[])
+
+
 
   return (
 
     <>
-      <Filter setBQuery={setBQuery}/>
-      <Info bQuery={bQuery}/>
+
+      <Filter setCard={setCard}/>
+      <Info card={card}/>
     </>
   );
 }
