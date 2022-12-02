@@ -1,8 +1,18 @@
-export default function Info(props) {
+import React from 'react';
+import ReactPaginate from 'react-paginate'
+
+
+
+export default function Info({card, totalPages}) {
+  console.log('totalpages in info', totalPages);
+
+  const handlePageClick = (page) => {
+    console.log(page.selected);
+  }
   return (
     <>
       <div className="card-layout">
-        {props.card.map((element, key) => {
+        {card.map((element, key) => {
           return (
             <div key={key} className="card-layout__item">
               <img className="char-img" src={`${element.image}`} />
@@ -16,6 +26,17 @@ export default function Info(props) {
           );
         })}
       </div>
+
+      <ReactPaginate 
+                previousLabel={'<<'}
+                nextLabel={'>>'}
+                breakLabel={'...'}
+                pageCount={totalPages}
+                marginPagesDisplayed={3}
+                pageRangeDisplayed={6}
+                onPageChange={handlePageClick}
+      />
+
     </>
   );
 }
