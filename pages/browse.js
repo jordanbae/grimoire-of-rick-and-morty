@@ -1,16 +1,22 @@
-import tempchar from '../public/tempchar.json'
-console.log(tempchar)
+import tempchar from "../public/tempchar.json";
+import Filter from "../components/Filter";
+import {useState, useEffect} from 'react';
+import Info from "../components/Info"
+console.log(tempchar);
 
 export default function Browse() {
-    return(
-        <>
-          {tempchar.filter(one => {
-            return (
-                <div>
-                    {one.species === 'Alien'}
-                </div>
-            )
-          })}
-        </>
-    )
+  const [bQuery, setBQuery] = useState([])
+
+  useEffect(() => {
+    setBQuery(tempchar.results)
+    console.log('tempchar in useeffect', tempchar)
+  },[])
+
+  return (
+
+    <>
+      <Filter setBQuery={setBQuery}/>
+      <Info bQuery={bQuery}/>
+    </>
+  );
 }

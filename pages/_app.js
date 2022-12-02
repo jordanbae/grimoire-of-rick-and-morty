@@ -1,6 +1,8 @@
 import '../styles/globals.css'
 import '../styles/index.css'
 import '../styles/header.css'
+import '../styles/browse.css'
+import '../styles/filter.css'
 
 import Header from './header'
 
