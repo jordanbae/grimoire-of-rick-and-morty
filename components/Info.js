@@ -12,11 +12,21 @@ export default function Info({ card, totalPages, setCard }) {
               <div key={key} className="card-layout__item">
                 <img className="char-img" src={`${element.image}`} />
                 <div className="char-info">
-                  <section className="char-name-status">
-                    {element.name} <span> {element.status}</span>{" "}
-                    <span> {element.location.name}</span>{" "}
-                    <span>{element.gender}</span> <span>{element.species}</span>
-                  </section>
+                  <div className="char-name">
+                      Name: {element.name}
+                  </div>
+                  <div className="char-status">
+                      Status: {element.status}
+                  </div>
+                  <div className="char-gender">
+                      gender: {element.gender}
+                  </div>
+                  <div className="char-species">
+                      Species: {element.species}
+                  </div>
+                  <div className="char-location">
+                      Location: {element.location.name}
+                  </div>
                 </div>
               </div>
             );
@@ -25,3 +35,19 @@ export default function Info({ card, totalPages, setCard }) {
     </>
   );
 }
+
+// {card &&
+//   card.map((element, key) => {
+//     return (
+//       <div key={key} className="card-layout__item">
+//         <img className="char-img" src={`${element.image}`} />
+//         <div className="char-info">
+//           <section className="char-name-status">
+//             {element.name} <span> {element.status}</span>{" "}
+//             <span> {element.location.name}</span>{" "}
+//             <span>{element.gender}</span> <span>{element.species}</span>
+//           </section>
+//         </div>
+//       </div>
+//     );
+//   })}

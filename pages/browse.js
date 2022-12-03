@@ -45,6 +45,7 @@ export default function Browse() {
   // console.log('totalpages in browse', totalPages)
   return (
     <>
+    <div className="vert-background-image">
       <Filter
         card={card}
         setCard={setCard}
@@ -85,6 +86,7 @@ export default function Browse() {
         initialUrl={initialUrl}
         setInitialUrl={setInitialUrl}
       />
+    </div>
     </>
   );
 }

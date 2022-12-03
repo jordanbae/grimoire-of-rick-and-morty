@@ -3,6 +3,7 @@ import '../styles/index.css'
 import '../styles/header.css'
 import '../styles/browse.css'
 import '../styles/filter.css'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 import Header from './header'
