@@ -4,7 +4,6 @@ import Info from "../components/Info";
 import axios from "axios";
 import Paginate from "../components/Paginate";
 
-const tempPageUrl = "https://rickandmortyapi.com/api/character/?page=";
 
 export default function Browse() {
   const [card, setCard] = useState();
@@ -14,6 +13,10 @@ export default function Browse() {
   const [statusValidate, setStatusValidate] = useState(1)
   const [charName, setCharName] = useState('');
 
+  const [urlParam, setUrlParam] = useState('https://rickandmortyapi.com/api/character/?page=');
+  const [statusParam, setStatusParam] = useState('&&status=')
+  const [nameParam, setNameParam] = useState('&&name=')
+
   const [loading, setLoading] = useState(false);
 
   //thinking of creating dead or alive state
@@ -21,7 +24,7 @@ export default function Browse() {
   useEffect(() => {
     const getResponse = () => {
       axios
-        .get("https://rickandmortyapi.com/api/character")
+        .get(urlParam)
         .then((res) => {
           setCard(res.data.results);
           setTotalPages(res.data.info.pages);
@@ -45,6 +48,12 @@ export default function Browse() {
         setStatusValidate={setStatusValidate}
         charName={charName}
         setCharName={setCharName}
+        urlParam={urlParam}
+        setUrlParam={setUrlParam}
+        statusParam={statusParam}
+        setStatusParam={setStatusParam}
+        nameParam={nameParam}
+        setNameParam={setNameParam}
       />
       <Info card={card} />
       <Paginate
@@ -56,6 +65,12 @@ export default function Browse() {
         charDead={charDead}
         statusValidate={statusValidate}
         setStatusValidate={setStatusValidate}
+        urlParam={urlParam}
+        setUrlParam={setUrlParam}
+        statusParam={statusParam}
+        setstatusParam={setStatusParam}
+        nameParam={nameParam}
+        setNameParam={setNameParam}
       />
     </>
   );

@@ -9,13 +9,20 @@ export default function Filter({
   statusValidate,
   setStatusValidate,
   charName,
-  setCharName
+  setCharName,
+  urlParam,
+  setUrlParam,
+  setNameParam,
+  nameParam,
+  statusParam,
+  setStatusParam
 }) {
   // update when status changed
   useEffect(() => {
     let urlNormal = `https://rickandmortyapi.com/api/character/`;
     let urlAlive = `https://rickandmortyapi.com/api/character/?status=alive`;
     let urlDead = `https://rickandmortyapi.com/api/character/?status=dead`;
+
     const callingApiFromStatus = () => {
       if (statusValidate === 1 || statusValidate === "1") {
         axios
@@ -23,6 +30,7 @@ export default function Filter({
           .then((res) => {
             setCard(res.data.results);
             setTotalPages(res.data.info.pages);
+            setStatusParam('&&status=')
           })
           .catch((err) => {
             console.log(err);
@@ -33,6 +41,8 @@ export default function Filter({
           .then((res) => {
             setCard(res.data.results);
             setTotalPages(res.data.info.pages);
+            setStatusParam('&&status=dead')
+
           })
           .catch((err) => {
             console.log(err);
@@ -43,6 +53,8 @@ export default function Filter({
           .then((res) => {
             setCard(res.data.results);
             setTotalPages(res.data.info.pages);
+             setStatusParam('&&status=alive')
+            
           })
           .catch((err) => {
             console.log(err);
@@ -77,6 +89,7 @@ export default function Filter({
       .then((res) => {
         setCard(res.data.results)
         setTotalPages(res.data.info.pages)
+        setNameParam(`&&name=${charName}`)
       })
       .catch((err) => {console.log(err)})
   };
