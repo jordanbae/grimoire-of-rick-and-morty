@@ -52,6 +52,9 @@ export default function Filter({
 
 
 
+
+
+
   const handleNameChange = (e) => {
     console.log(e.target.value)
     let name = e.target.value;
@@ -60,29 +63,18 @@ export default function Filter({
     setCharName(capitalizedName)
   }
 
-  //set page and url that contains specific name.
   const handleNameSearch = (e) => {
     e.preventDefault();
-    const charNameUrl = `https://rickandmortyapi.com/api/character/?name=${charName}`
-
-    axios
-      .get(charNameUrl)
-      .then((res) => {
-        console.log('HANDLE NAME SEARCH CALLED API')
-        setCard(res.data.results)
-        setTotalPages(res.data.info.pages)
-        setNameParam(`&&name=${charName}`)
-      })
-      .catch((err) => {console.log(err)})
+    setNameParam(`&&name=${charName}`)
   };
 
   useEffect(() => {
     console.log('urlHandler')
     const urlHandler = () => {
-      setUrlParam( `${initialUrl}${pageParam}${statusParam}`)
+      setUrlParam( `${initialUrl}${pageParam}${statusParam}${nameParam}`)
     }
     urlHandler();
-  },[pageParam, statusParam])
+  },[pageParam, statusParam, nameParam])
 
   useEffect(() => {
     console.log('masterHandler')

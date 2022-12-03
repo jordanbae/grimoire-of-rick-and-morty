@@ -30,7 +30,7 @@ export default function Browse() {
         .get(urlParam)
         .then((res) => {
           console.log('BROWSE CALLED API')
-
+          console.log(res);
           setCard(res.data.results);
           setTotalPages(res.data.info.pages);
           setLoading(false);
