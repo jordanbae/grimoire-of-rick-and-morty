@@ -2,31 +2,45 @@ import ReactPaginate from 'react-paginate'
 import axios from 'axios';
 
 
-export default function Paginate({card, totalPages, setCard, charDead, setCharDead, setTotalPages}) {
+export default function Paginate({card, totalPages, setCard, setTotalPages, statusValidate}) {
     const handlePageClick =  (page) => {
         let currentPage= page.selected+1;
         //pass the death or alive to here. (i may have to move paginate to inside filter and when i change the status i will change the url with condition)
         let url = `https://rickandmortyapi.com/api/character/?page=${currentPage}`
         
-        // if(charDead === true) {
-        //   axios.get(url + `&&status=Alive`)
-        //   .then((res) => {
-        //     setCard(res.data.results);
-        //     console.log('char is alive in paginate', res.data.results)
-        //   })
-        //   .catch((err) => {
-        //     console.log(err)
-        //   })
-        // } else if (charDead === false) {
-        //   axios.get(url + `&&status=Dead`)
-        //   .then((res) => {
-        //     setCard(res.data.results);
-        //     console.log('char is dead in paginate', res.data.results)
-        //   })
-        //   .catch((err) => {
-        //     console.log(err)
-        //   })   
-        // }
+        if (statusValidate === 1 || statusValidate === '1') {
+          axios
+            .get(url)
+            .then((res) => {
+              setCard(res.data.results);
+              setTotalPages(res.data.info.pages);
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        } else if (statusValidate === 0 || statusValidate === '0') {
+          axios
+            .get(url + `&&status=dead`)
+            .then((res) => {
+              setCard(res.data.results);
+              setTotalPages(res.data.info.pages);
+
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        } else if (statusValidate === 2 || statusValidate === '2'){
+          axios
+            .get(url + `&&status=alive`)
+            .then((res) => {
+              setCard(res.data.results);
+              setTotalPages(res.data.info.pages);
+
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+        }
       }
 
     return (
