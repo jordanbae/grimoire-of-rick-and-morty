@@ -13,7 +13,10 @@ export default function Browse() {
   const [statusValidate, setStatusValidate] = useState(1)
   const [charName, setCharName] = useState('');
 
-  const [urlParam, setUrlParam] = useState('https://rickandmortyapi.com/api/character/?page=');
+  const [initialUrl, setInitialUrl] = useState('https://rickandmortyapi.com/api/character/');
+  const [urlParam, setUrlParam] = useState(initialUrl);
+  console.log('URL PARAMMMMMMMM', urlParam);
+  const [pageParam, setPageParam] = useState('?page=')
   const [statusParam, setStatusParam] = useState('&&status=')
   const [nameParam, setNameParam] = useState('&&name=')
 
@@ -26,6 +29,8 @@ export default function Browse() {
       axios
         .get(urlParam)
         .then((res) => {
+          console.log('BROWSE CALLED API')
+
           setCard(res.data.results);
           setTotalPages(res.data.info.pages);
           setLoading(false);
@@ -54,6 +59,10 @@ export default function Browse() {
         setStatusParam={setStatusParam}
         nameParam={nameParam}
         setNameParam={setNameParam}
+        pageParam={pageParam}
+        setPageParam={setPageParam}
+        initialUrl={initialUrl}
+        setInitialUrl={setInitialUrl}
       />
       <Info card={card} />
       <Paginate
@@ -71,6 +80,10 @@ export default function Browse() {
         setstatusParam={setStatusParam}
         nameParam={nameParam}
         setNameParam={setNameParam}
+        pageParam={pageParam}
+        setPageParam={setPageParam}
+        initialUrl={initialUrl}
+        setInitialUrl={setInitialUrl}
       />
     </>
   );

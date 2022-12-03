@@ -15,53 +15,33 @@ export default function Filter({
   setNameParam,
   nameParam,
   statusParam,
-  setStatusParam
+  setStatusParam,
+  pageParam,
+  setPageParam,
+  initialUrl,
+  setInitialUrl,
 }) {
-  // update when status changed
+
+
+
   useEffect(() => {
-    let urlNormal = `https://rickandmortyapi.com/api/character/`;
-    let urlAlive = `https://rickandmortyapi.com/api/character/?status=alive`;
-    let urlDead = `https://rickandmortyapi.com/api/character/?status=dead`;
+    console.log('statusHandler')
 
-    const callingApiFromStatus = () => {
-      if (statusValidate === 1 || statusValidate === "1") {
-        axios
-          .get(urlNormal)
-          .then((res) => {
-            setCard(res.data.results);
-            setTotalPages(res.data.info.pages);
-            setStatusParam('&&status=')
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      } else if (statusValidate === 0 || statusValidate === "0") {
-        axios
-          .get(urlDead)
-          .then((res) => {
-            setCard(res.data.results);
-            setTotalPages(res.data.info.pages);
-            setStatusParam('&&status=dead')
+    const statusHandler = () => {
+      if (statusValidate === 0 || statusValidate === "0") {
+        setStatusParam('&&status=dead')
+        console.log('should be 0', statusValidate)
+      } else if (statusValidate === 1 || statusValidate === "1") {
+        setStatusParam('&&status=')
+        console.log('should be 1', statusValidate)
 
-          })
-          .catch((err) => {
-            console.log(err);
-          });
       } else if (statusValidate === 2 || statusValidate === "2") {
-        axios
-          .get(urlAlive)
-          .then((res) => {
-            setCard(res.data.results);
-            setTotalPages(res.data.info.pages);
-             setStatusParam('&&status=alive')
-            
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+        setStatusParam('&&status=alive')
+        console.log('should be 2', statusValidate)
+
+      } else {console.error('undefined status')}
     };
-    callingApiFromStatus();
+    statusHandler();
   }, [statusValidate]);
 
   // set status validate
@@ -69,6 +49,8 @@ export default function Filter({
     e.preventDefault();
     setStatusValidate(e.target.value);
   };
+
+
 
   const handleNameChange = (e) => {
     console.log(e.target.value)
@@ -78,7 +60,6 @@ export default function Filter({
     setCharName(capitalizedName)
   }
 
-
   //set page and url that contains specific name.
   const handleNameSearch = (e) => {
     e.preventDefault();
@@ -87,12 +68,41 @@ export default function Filter({
     axios
       .get(charNameUrl)
       .then((res) => {
+        console.log('HANDLE NAME SEARCH CALLED API')
         setCard(res.data.results)
         setTotalPages(res.data.info.pages)
         setNameParam(`&&name=${charName}`)
       })
       .catch((err) => {console.log(err)})
   };
+
+  useEffect(() => {
+    console.log('urlHandler')
+    const urlHandler = () => {
+      setUrlParam( `${initialUrl}${pageParam}${statusParam}`)
+    }
+    urlHandler();
+  },[pageParam, statusParam])
+
+  useEffect(() => {
+    console.log('masterHandler')
+    const masterCaller = () => {
+      axios
+        .get(urlParam)
+        .then((res) => {
+          console.log('MASTER CALLED API')
+          setCard(res.data.results);
+          setTotalPages(res.data.info.pages);
+        })
+        .catch((err) => {console.log(err)})
+    }
+    masterCaller();
+  },[urlParam])
+
+
+
+
+
 
   return (
     <div className="filter-container">

@@ -12,16 +12,21 @@ export default function Paginate({
   setNameParam,
   nameParam,
   statusParam,
-  setStatusParam
+  setStatusParam,
+  pageParam,
+  setPageParam,
+  initialUrl,
+  setInitialUrl,
 }) {
   const handlePageClick = (page) => {
     let currentPage = page.selected + 1;
-    //pass the death or alive to here. (i may have to move paginate to inside filter and when i change the status i will change the url with condition)
-    let url = `${urlParam}${currentPage}${nameParam}${statusParam}`;
+    setPageParam(`?page=${currentPage}`)
+    let url = `${initialUrl}${pageParam}${nameParam}${statusParam}`;
 
     axios
       .get(url)
       .then((res) => {
+        console.log('PAGINATE CALLED API');
         setCard(res.data.results);
         setTotalPages(res.data.info.pages);
       })
