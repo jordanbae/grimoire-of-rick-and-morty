@@ -5,3 +5,12 @@
     color: black;
     padding: 2rem;
 }
+
+#customRange3 {
+    width: 3%;
+}
+
+.status-range-cont {
+    display: flex;
+    flex-direction: column;
+}

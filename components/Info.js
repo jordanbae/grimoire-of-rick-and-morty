@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.css'
 import axios from 'axios';
-import Paginate from '../components/Paginate'
 
 
 
@@ -24,7 +23,6 @@ export default function Info({card, totalPages, setCard}) {
           );
         })}
       </div>
-      <Paginate card={card} setCard={setCard} totalPages={totalPages}/>
     </>
   );
 }

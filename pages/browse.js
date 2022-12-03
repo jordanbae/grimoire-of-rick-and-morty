@@ -2,6 +2,7 @@ import Filter from "../components/Filter";
 import {useState, useEffect} from 'react';
 import Info from "../components/Info"
 import axios from 'axios'
+import Paginate from '../components/Paginate'
 
 
 
@@ -11,7 +12,12 @@ const tempPageUrl = 'https://rickandmortyapi.com/api/character/?page='
 export default function Browse() {
   const [card, setCard] = useState()
   const [totalPages, setTotalPages] = useState()
+  const [charDead, setCharDead] = useState(true)
+  const [charStatus, setCharStatus] = useState()
+
   const [loading, setLoading] = useState(false);
+
+  //thinking of creating dead or alive state
 
   useEffect(() => {
     const getResponse = () => {
@@ -33,8 +39,10 @@ export default function Browse() {
   // console.log('totalpages in browse', totalPages)
   return (
     <>
-      <Filter card={card} setCard={setCard}/>
-      <Info card={card} totalPages={totalPages} setCard={setCard}/>
+      <Filter card={card} setCard={setCard} totalPages={totalPages} setCharDead={setCharDead} charDead={charDead} setTotalPages={setTotalPages} charStatus={charStatus} setCharStatus={setCharStatus}/>
+      <Info card={card}/>
+      <Paginate card={card} setCard={setCard} totalPages={totalPages} setTotalPages={setTotalPages} setCharDead={setCharDead} charDead={charDead}/>
+
     </>
   );
 }
