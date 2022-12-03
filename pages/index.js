@@ -5,8 +5,9 @@ export default function Home() {
   return (
     <>
       <div className="background-image">
+        
         <main>
-          <h1>hi</h1>
+          hi
         </main>
       </div>
     </>
