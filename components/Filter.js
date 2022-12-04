@@ -59,7 +59,6 @@ export default function Filter({
 
   useEffect(() => {
     const masterCaller = () => {
-      setTimeout(() => {
         axios
         .get(urlParam)
         .then((res) => {
@@ -69,8 +68,6 @@ export default function Filter({
         .catch((err) => {
           console.log(err);
         });
-      },2500)
-
     };
     masterCaller();
   }, [urlParam]);

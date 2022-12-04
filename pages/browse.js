@@ -36,7 +36,7 @@ export default function Browse() {
           .catch((err) => {
             console.log(err);
           });
-      }, 2500);
+      }, 500);
     };
     getResponse();
   }, []);
@@ -63,7 +63,7 @@ export default function Browse() {
             pageParam={pageParam}
             initialUrl={initialUrl}
           />
-          <Info card={card} />
+          <Info card={card} loading={loading} setLoading={setLoading}/>
           <Paginate
             setCard={setCard}
             totalPages={totalPages}
