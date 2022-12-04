@@ -16,7 +16,8 @@
     height: 220px;
     display: flex;
     overflow: hidden;
-    background: #212121;
+    background: #21212180;
+    /* background: #212121; */
     border-radius: 16px;
     margin: 0.75rem;
     -webkit-box-shadow: 0 0 10px #000;
@@ -37,8 +38,9 @@
     
     background: url('../public/browse-bg.png');
     background-size:cover;
-    background-repeat:repeat;
+    background-repeat: no-repeat;
     background-attachment: fixed;
+    height: 100%;
     /* background-size: 100% 100%; */
 }
 
@@ -112,4 +114,12 @@
 
 .char-label{
     color:grey;
+}
+
+
+#label-dead {
+    color: #ff3838;
+}
+#label-alive {
+    color: #26d77f;
 }

@@ -3,6 +3,8 @@
 .filter-container {
     /* padding: 0.25rem; */
     background-color: rgba(0, 0, 0, 0.349);
+    -webkit-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #000;
     height: 10rem;
     display: flex;
     align-items: center;
@@ -28,7 +30,12 @@
   .pagination > li > a
 {
     background-color: white;
-    color: #5A4181;
+    color: #737373;
+}
+
+.pagination {
+    
+    border-width: 20px;
 }
 
 .pagination > li > a:focus,
@@ -37,26 +44,31 @@
 .pagination > li > span:hover
 {
     color: white;
-    background-color: rgb(196, 154, 233);
+    background-color: #737373;
     border-color: #ddd;
 }
 
 .pagination > .active > a
 {
     color: white;
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181 !Important;
+    background-color: #737373 !Important;
+    border: solid 1px #737373 !Important;
 }
 
 .pagination > .active > a:hover
 {
-    background-color: #5A4181 !Important;
-    border: solid 1px #5A4181;
+    background-color: #737373 !Important;
+    /* background-color: #5A4181 !Important; */
+    border: solid 1px #737373;
 }
 
 .paginate-container {
     display: flex;
     justify-content: center;
     padding: 0.5rem;
+}
+
+.form-lable-tag{
+    color: white;
 }
 

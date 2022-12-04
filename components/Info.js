@@ -19,7 +19,9 @@ export default function Info({ card, totalPages, setCard }) {
                       className="dot-status"
                       style={{
                         backgroundColor:
-                          element.status === "Dead" ? "#ff3838" : "#26d77f",
+                          element.status === "Dead" ? "#ff3838"
+                          : element.status === "Alive" ? "#26d77f"
+                          : 'grey'
                       }}
                     ></div>
                     {element.status.toUpperCase()}
@@ -41,19 +43,3 @@ export default function Info({ card, totalPages, setCard }) {
     </>
   );
 }
-
-// {card &&
-//   card.map((element, key) => {
-//     return (
-//       <div key={key} className="card-layout__item">
-//         <img className="char-img" src={`${element.image}`} />
-//         <div className="char-info">
-//           <section className="char-name-status">
-//             {element.name} <span> {element.status}</span>{" "}
-//             <span> {element.location.name}</span>{" "}
-//             <span>{element.gender}</span> <span>{element.species}</span>
-//           </section>
-//         </div>
-//       </div>
-//     );
-//   })}
