@@ -9,24 +9,30 @@ export default function Info({ card, totalPages, setCard }) {
         {card &&
           card.map((element, key) => {
             return (
-              <div key={key} className="card-layout__item">
+              <div key={key} className="card-layout__item shadow">
                 <img className="char-img" src={`${element.image}`} />
-                <div className="char-info">
-                  <div className="char-name">
-                      Name: {element.name}
-                  </div>
+
+                <div className="status-img-cont">
+                <div className="char-status-cont">
                   <div className="char-status">
-                      Status: {element.status}
+                    <div
+                      className="dot-status"
+                      style={{
+                        backgroundColor:
+                          element.status === "Dead" ? "#ff3838" : "#26d77f",
+                      }}
+                    ></div>
+                    {element.status.toUpperCase()}
                   </div>
-                  <div className="char-gender">
-                      gender: {element.gender}
-                  </div>
-                  <div className="char-species">
-                      Species: {element.species}
-                  </div>
+                </div>
+                <div className="char-info">
+                  <div className="char-name">{element.name}</div>
+                  <div className="char-gender"><span className="char-label">Gender:</span> {element.gender}</div>
+                  <div className="char-species"><span className="char-label">Species:</span> {element.species}</div>
                   <div className="char-location">
-                      Location: {element.location.name}
+                  <span className="char-label">Location:</span> {element.location.name}
                   </div>
+                </div>
                 </div>
               </div>
             );
