@@ -1,9 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
 import React, { useEffect } from "react";
 
 export default function Filter({
-  card,
   setCard,
   setTotalPages,
   statusValidate,
@@ -17,25 +15,19 @@ export default function Filter({
   statusParam,
   setStatusParam,
   pageParam,
-  setPageParam,
   initialUrl,
-  setInitialUrl,
 }) {
   useEffect(() => {
-    console.log("statusHandler");
 
     const statusHandler = () => {
       if (statusValidate === 0 || statusValidate === "0") {
         setStatusParam("&&status=dead");
-        console.log("should be 0", statusValidate);
       } else if (statusValidate === 1 || statusValidate === "1") {
         setStatusParam("&&status=");
-        console.log("should be 1", statusValidate);
       } else if (statusValidate === 2 || statusValidate === "2") {
         setStatusParam("&&status=alive");
-        console.log("should be 2", statusValidate);
       } else {
-        console.error("undefined status");
+        null;
       }
     };
     statusHandler();
@@ -48,9 +40,7 @@ export default function Filter({
   };
 
   const handleNameChange = (e) => {
-    console.log(e.target.value);
     let name = e.target.value;
-    console.log(name);
     let capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
     setCharName(capitalizedName);
   };
@@ -61,7 +51,6 @@ export default function Filter({
   };
 
   useEffect(() => {
-    console.log("urlHandler");
     const urlHandler = () => {
       setUrlParam(`${initialUrl}${pageParam}${statusParam}${nameParam}`);
     };
@@ -69,18 +58,19 @@ export default function Filter({
   }, [pageParam, statusParam, nameParam]);
 
   useEffect(() => {
-    console.log("masterHandler");
     const masterCaller = () => {
-      axios
+      setTimeout(() => {
+        axios
         .get(urlParam)
         .then((res) => {
-          console.log("MASTER CALLED API");
           setCard(res.data.results);
           setTotalPages(res.data.info.pages);
         })
         .catch((err) => {
           console.log(err);
         });
+      },2500)
+
     };
     masterCaller();
   }, [urlParam]);

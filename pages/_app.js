@@ -4,6 +4,7 @@ import '../styles/header.css'
 import '../styles/browse.css'
 import '../styles/filter.css'
 import '../styles/about.css'
+import '../styles/loading.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 

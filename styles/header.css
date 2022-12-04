@@ -1,40 +1,36 @@
-.nav-con{
-    display: flex;
-    justify-content: center;
+.nav-con {
+  display: flex;
+  justify-content: center;
 }
-
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
-
-
 .title-logo {
-    padding: 0.5rem;
-    transition: 0.5s ease;
+  padding: 0.5rem;
+  transition: 0.5s ease;
 }
 
 .title-logo:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
 
 .link-label {
-    font-size: 20px;
-    color: #fff;
-    transition: 0.5s ease;
+  font-size: 20px;
+  color: #fff;
+  transition: 0.5s ease;
 }
 
 .link-label:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
 .title-label {
-    font-size: 20px;
-    color: #fff;
-    transition: 0.5s ease;
+  font-size: 20px;
+  color: #fff;
+  transition: 0.5s ease;
 }
 
 .title-label:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
-

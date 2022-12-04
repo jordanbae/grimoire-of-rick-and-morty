@@ -1,0 +1,11 @@
+.loading-background-image {
+  background: url("../public/browse-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

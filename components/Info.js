@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import axios from "axios";
 
-export default function Info({ card, totalPages, setCard }) {
+export default function Info({ card }) {
   return (
     <>
       <div className="card-layout">
