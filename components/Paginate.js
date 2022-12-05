@@ -13,7 +13,7 @@ export default function Paginate({
 }) {
   const handlePageClick = (page) => {
     let currentPage = page.selected + 1;
-    setPageParam(`?page=${currentPage}`)
+    setPageParam(`?page=${currentPage}`);
     let url = `${initialUrl}${pageParam}${statusParam}${nameParam}`;
 
     axios
@@ -23,8 +23,8 @@ export default function Paginate({
         setTotalPages(res.data.info.pages);
       })
       .catch((err) => {
-        console.log(err)
-      })
+        console.log(err);
+      });
   };
 
   return (
@@ -48,9 +48,7 @@ export default function Paginate({
           breakClassName={"page-item"}
           breakLinkClassName={"page-link"}
           activeClassName={"active"}
-          
         />
-        
       </div>
     </>
   );
