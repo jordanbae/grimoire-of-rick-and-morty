@@ -109,6 +109,7 @@ export default function Filter({
             step="1"
             id="customRange3"
             autoComplete="off"
+            value={statusValidate}
             onChange={handleStatusChange}
           ></input>
         </div>
