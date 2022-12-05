@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar} from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 
 export default function Header() {
   return (
@@ -18,13 +18,18 @@ export default function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link href="/"><span className="link-label">Home</span></Nav.Link>
-            <Nav.Link href="/browse"><span className="link-label">Browse</span></Nav.Link>
-            <Nav.Link href="/about"><span className="link-label">About</span></Nav.Link>
+            <Nav.Link href="/">
+              <span className="link-label">Home</span>
+            </Nav.Link>
+            <Nav.Link href="/browse">
+              <span className="link-label">Browse</span>
+            </Nav.Link>
+            <Nav.Link href="/about">
+              <span className="link-label">About</span>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
     </>
   );
 }
- 
