@@ -5,6 +5,8 @@ import '../styles/browse.css'
 import '../styles/filter.css'
 import '../styles/about.css'
 import '../styles/loading.css'
+import '../styles/404.css'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
