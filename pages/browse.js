@@ -9,7 +9,6 @@ export default function Browse() {
   const [card, setCard] = useState();
   const [totalPages, setTotalPages] = useState();
   const [charDead, setCharDead] = useState(true);
-  const [charStatus, setCharStatus] = useState(1);
   const [statusValidate, setStatusValidate] = useState(1);
   const [charName, setCharName] = useState("");
 

@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import Loading from "./Loading";
 import "bootstrap/dist/css/bootstrap.css";
 
-export default function Info({ card, loading, setLoading}) {
+export default function Info({ card }) {
   return (
     <>
       <div className="card-layout">

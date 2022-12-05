@@ -10,7 +10,7 @@ import '../styles/404.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import Header from './header'
+import Header from '../components/Header'
 
 function MyApp({ Component, pageProps }) {
   return (

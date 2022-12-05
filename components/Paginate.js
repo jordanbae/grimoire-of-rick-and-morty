@@ -14,7 +14,7 @@ export default function Paginate({
   const handlePageClick = (page) => {
     let currentPage = page.selected + 1;
     setPageParam(`?page=${currentPage}`)
-    let url = `${initialUrl}${pageParam}${nameParam}${statusParam}`;
+    let url = `${initialUrl}${pageParam}${statusParam}${nameParam}`;
 
     axios
       .get(url)
