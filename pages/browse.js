@@ -61,7 +61,7 @@ export default function Browse() {
             pageParam={pageParam}
             initialUrl={initialUrl}
           />
-          <Info card={card} loading={loading} setLoading={setLoading} />
+          <Info card={card}/>
           <Paginate
             setCard={setCard}
             totalPages={totalPages}
