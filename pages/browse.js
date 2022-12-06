@@ -8,7 +8,6 @@ import Loading from "../components/Loading";
 export default function Browse() {
   const [card, setCard] = useState();
   const [totalPages, setTotalPages] = useState();
-  const [charDead, setCharDead] = useState(true);
   const [statusValidate, setStatusValidate] = useState(1);
   const [charName, setCharName] = useState("");
 
@@ -67,8 +66,6 @@ export default function Browse() {
             setCard={setCard}
             totalPages={totalPages}
             setTotalPages={setTotalPages}
-            setCharDead={setCharDead}
-            charDead={charDead}
             setStatusValidate={setStatusValidate}
             statusParam={statusParam}
             nameParam={nameParam}
